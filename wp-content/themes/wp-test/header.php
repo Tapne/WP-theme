@@ -77,10 +77,10 @@
 <div class="site-blocks-cover overlay" style="background-image: url('<?php the_field('image_hp'); ?>');" data-stellar-background-ratio="0.5" id="section-home">
     <div class="container">
         <div class="row align-items-center justify-content-center text-center">
-            <div class="col-md-8" data-aos-delay="400">
+            <div class="col-md-8">
                 <h1 class="text-white font-weight-light text-uppercase font-weight-bold">We Make Shipping</h1>
-                <p class="mb-5"  data-aos-delay="100">A Logistics Company</p>
-                <p data-aos-delay="200"><a href="https://free-template.co" class="btn btn-primary py-3 px-5 text-white">Get Started!</a></p>
+                <p class="mb-5">A Logistics Company</p>
+                <p><a href="https://free-template.co" class="btn btn-primary py-3 px-5 text-white">Get Started!</a></p>
             </div>
         </div>
     </div>

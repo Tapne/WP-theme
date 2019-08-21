@@ -3,10 +3,10 @@
         <div class="container">
             <div class="row mb-5">
 
-                <div class="col-md-5 ml-auto mb-5 order-md-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-5 ml-auto mb-5 order-md-2">
                     <img src="images/img_3.jpg" alt="Image" class="img-fluid rounded">
                 </div>
-                <div class="col-md-6 order-md-1" data-aos="fade-up">
+                <div class="col-md-6 order-md-1">
                     <div class="text-left pb-1 border-primary mb-4">
                         <h2 class="text-primary">About Us</h2>
                     </div>
@@ -29,11 +29,11 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-7 text-center border-primary">
-                    <h2 class="font-weight-light text-primary" data-aos="fade">How It Works</h2>
+                    <h2 class="font-weight-light text-primary">How It Works</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                     <div class="how-it-work-item">
                         <span class="number">1</span>
                         <div class="how-it-work-body">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                     <div class="how-it-work-item">
                         <span class="number">2</span>
                         <div class="how-it-work-body">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                     <div class="how-it-work-item">
                         <span class="number">3</span>
                         <div class="how-it-work-body">
@@ -86,11 +86,11 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-7 text-center border-primary">
-                    <h2 class="font-weight-light text-primary" data-aos="fade">Our Team</h2>
+                    <h2 class="font-weight-light text-primary">Our Team</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                     <div class="person">
                         <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded mb-5 w-75 rounded-circle">
                         <h3>Christine Rooster</h3>
@@ -104,7 +104,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                     <div class="person">
                         <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded mb-5 w-75 rounded-circle">
                         <h3>Brandon Sharp</h3>
@@ -118,7 +118,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                     <div class="person">
                         <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded mb-5 w-75 rounded-circle">
                         <h3>Connor Hodson</h3>
@@ -142,14 +142,14 @@
 
     <div class="site-section bg-light" id="section-services">
         <div class="container">
-            <div class="row justify-content-center mb-5" data-aos="fade-up">
+            <div class="row justify-content-center mb-5">
                 <div class="col-md-7 text-center border-primary">
                     <h2 class="mb-0 text-primary">Our Services</h2>
                     <p class="color-black-opacity-5">Lorem ipsum dolor sit amet.</p>
                 </div>
             </div>
             <div class="row align-items-stretch">
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                     <div class="unit-4 d-flex">
                         <div class="unit-4-icon mr-4"><span class="text-primary flaticon-plane"></span></div>
                         <div>
@@ -159,7 +159,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                     <div class="unit-4 d-flex">
                         <div class="unit-4-icon mr-4"><span class="text-primary flaticon-boat-ship"></span></div>
                         <div>
@@ -169,7 +169,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                     <div class="unit-4 d-flex">
                         <div class="unit-4-icon mr-4"><span class="text-primary flaticon-truck"></span></div>
                         <div>
@@ -181,7 +181,7 @@
                 </div>
 
 
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                     <div class="unit-4 d-flex">
                         <div class="unit-4-icon mr-4"><span class="text-primary flaticon-warehouse"></span></div>
                         <div>
@@ -191,7 +191,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                     <div class="unit-4 d-flex">
                         <div class="unit-4-icon mr-4"><span class="text-primary flaticon-wooden"></span></div>
                         <div>
@@ -201,7 +201,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                     <div class="unit-4 d-flex">
                         <div class="unit-4-icon mr-4"><span class="text-primary flaticon-worldwide"></span></div>
                         <div>
@@ -284,7 +284,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
 
-                <div class="col-md-7" data-aos="fade-up">
+                <div class="col-md-7">
                     <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-single-big mb-4 d-inline-block popup-vimeo"><span class="icon-play"></span></a>
                     <h2 class="text-white font-weight-light mb-5 h1">Watch The Video</h2>
 
@@ -365,7 +365,7 @@
                 </div>
             </div>
             <div class="row mb-5 align-items-stretch">
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                     <div class="h-entry">
                         <img src="images/blog_1.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">How Logistics Company Improve Spendings</a></h2>
@@ -373,7 +373,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                     <div class="h-entry">
                         <img src="images/blog_2.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">How Logistics Company Improve Spendings</a></h2>
@@ -381,7 +381,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                     <div class="h-entry">
                         <img src="images/blog_3.jpg" alt="Image" class="img-fluid">
                         <h2 class="font-size-regular"><a href="#">How Logistics Company Improve Spendings</a></h2>
@@ -391,7 +391,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-12 text-center">
                     <p class="mb-0"><a href="https://free-template.co" class="btn btn-primary py-3 px-5 text-white">View All Blog Posts</a></p>
                 </div>
             </div>
