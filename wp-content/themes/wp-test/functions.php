@@ -11,6 +11,9 @@ wp_enqueue_style('bootstrap-datepicker', get_template_directory_uri().'/css/boot
 wp_enqueue_style('flaticon', get_template_directory_uri().'/fonts/flaticon/font/flaticon.css');
 wp_enqueue_style('aos_css', get_template_directory_uri().'/css/aos.css');
 wp_enqueue_style('style_css', get_template_directory_uri().'/css/style.css');
+wp_enqueue_style('style_css', get_template_directory_uri().'/css/style.css');
+wp_enqueue_style('font', 'https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700');
+
 
 wp_enqueue_script('jquery-3.3.1', get_template_directory_uri().'/js/jquery-3.3.1.min.js');
 wp_enqueue_script('jquery-migrate-3.0.1', get_template_directory_uri().'/js/jquery-migrate-3.0.1.min.js');
