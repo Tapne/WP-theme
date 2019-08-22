@@ -53,38 +53,23 @@
                 </h1>
             </div>
             <div class="col-12 col-md-10 d-none d-xl-block">
-                <nav class="site-navigation position-relative text-right" role="navigation">
-                    <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                        <li><a href="#section-home" class="nav-link">Home</a></li>
-                        <li class="has-children">
-                            <a href="#section-about" class="nav-link">About Us</a>
-                            <ul class="dropdown">
-                                <li><a href="#section-how-it-works" class="nav-link">How It Works</a></li>
-                                <li><a href="#section-our-team" class="nav-link">Our Team</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#section-services" class="nav-link">Services</a></li>
-                        <li><a href="#section-industries" class="nav-link">Industries</a></li>
-                        <li><a href="#section-blog" class="nav-link">Blog</a></li>
-                        <li><a href="#section-contact" class="nav-link">Contact</a></li>
-                    </ul>
+                <nav class="site-navigation position-relative text-right" role="navigation" id="main-menu">
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'primary',
+                    'container' =>  'ul',
+                    'echo' => true,
+                    'menu_class' => 'site-menu js-clone-nav mx-auto d-none d-lg-block',
+                    'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+                    'walker' => new My_Walker_Nav_Menu(),
+                ]);
+                ?>
                 </nav>
             </div>
             <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
         </div>
     </div>
 </header>
-<div class="site-blocks-cover overlay" style="background-image: url('<?php the_field('image_hp'); ?>');" data-stellar-background-ratio="0.5" id="section-home">
-    <div class="container">
-        <div class="row align-items-center justify-content-center text-center">
-            <div class="col-md-8">
-                <h1 class="text-white font-weight-light text-uppercase font-weight-bold">We Make Shipping</h1>
-                <p class="mb-5">A Logistics Company</p>
-                <p><a href="https://free-template.co" class="btn btn-primary py-3 px-5 text-white">Get Started!</a></p>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

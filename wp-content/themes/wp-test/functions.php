@@ -12,7 +12,7 @@ wp_enqueue_style('flaticon', get_template_directory_uri().'/fonts/flaticon/font/
 wp_enqueue_style('aos_css', get_template_directory_uri().'/css/aos.css');
 wp_enqueue_style('style_css', get_template_directory_uri().'/css/style.css');
 wp_enqueue_style('style_css', get_template_directory_uri().'/css/style.css');
-wp_enqueue_style('font', 'https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700');
+wp_enqueue_style('font_1', 'https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700');
 
 
 wp_enqueue_script('jquery-3.3.1', get_template_directory_uri().'/js/jquery-3.3.1.min.js');
@@ -28,3 +28,62 @@ wp_enqueue_script('jquery.magnific-popup', get_template_directory_uri().'/js/jqu
 wp_enqueue_script('bootstrap-datepicker', get_template_directory_uri().'/js/bootstrap-datepicker.min.js');
 wp_enqueue_script('aos_js', get_template_directory_uri().'/js/aos.js');
 wp_enqueue_script('main_js', get_template_directory_uri().'/js/main.js');
+
+
+register_nav_menu('top', 'main_menu');
+
+
+class My_Walker_Nav_Menu extends Walker_Nav_Menu {
+    function start_lvl(&$output, $depth = 0, $args = array(), $id = 0) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "$indent<ul class=\"dropdown\">";
+    }
+
+    function end_lvl(&$output, $depth = 0, $args = array(), $id = 0) {
+        $output .= '</ul>';
+    }
+
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+        if($this->has_children) {
+            $output .= "<li class=\"has-children\"><a href=\".$item->url.\"> ".$item->title;
+        } else {
+            $output .= "<li><a href=\"".$item->url."\"> ".$item->title;
+        }
+    }
+
+    function end_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+        $output .= "</a></li>";
+    }
+}
+
+function people_custom_post_type() {
+    $labels = array(
+        'name' => 'People',
+        'singular_name' => 'Person',
+    );
+
+    $supports = array(
+        'title',
+        'editor',
+        'thumbnail',
+        'excerpt',
+        'custom-fields',
+        'revisions',
+        'post-formats',
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array(
+            'slug' => 'people',
+        ),
+        'supports' => $supports,
+    );
+    register_post_type('people', $args);
+}
+add_action( 'init', 'people_custom_post_type' );
+
+
+add_theme_support( 'post-thumbnails');
