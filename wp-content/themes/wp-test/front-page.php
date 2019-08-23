@@ -8,6 +8,7 @@ $industries_section = get_field('industries');
 $video_section = get_field('video_section');
 $testimonials_section = get_field('testimonials');
 $our_blog_section = get_field('our_blog');
+$contact_section = get_field('contact');
 
 
 $header = get_field('header_items');
@@ -206,18 +207,29 @@ $header = get_field('header_items');
         </div>
 
         <div class="owl-carousel nonloop-block-13" id="industries">
+            <div>
+                <a href="#" class="unit-1 text-center">
+                    <img src="https://via.placeholder.com/150/92c952" alt="Image" class="img-fluid">
+                    <div class="unit-1-text">
+                        <h3 class="unit-1-heading">Ware Housing</h3>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="#" class="unit-1 text-center">
+                    <img src="https://via.placeholder.com/150/92c952" alt="Image" class="img-fluid">
+                    <div class="unit-1-text">
+                        <h3 class="unit-1-heading">Ware Housing</h3>
+                    </div>
+                </a>
+            </div>
             <script>
                 $(document).ready(function () {
                     $.ajax({
                         url: "https://jsonplaceholder.typicode.com/photos",
                         success: function (odp) {
-                            var max = odp.length;
-                            var tmp = 0;
-                            var i;
-                            for(i=0; i < 10; i++) {
-                                tmp = Math.floor((Math.random()*max)+1);
-                                $("#industries").append('<div><a href="#'+odp[tmp]["id"]+'" class="unit-1 text-center"><img src="'+odp[tmp]["url"]+'" alt="Image" class="img-fluid"><div class="unit-1-text"><h3 class="unit-1-heading">'+odp[tmp]["title"]+'</h3></div></a></div>');
-                            }
+                            var tmp = Math.floor((Math.random()*odp.length)+1);
+                            $("#industries").append('<div><a href="#'+odp[tmp]["id"]+'" class="unit-1 text-center"><img src="'+odp[tmp]["thumbnailUrl"]+'" alt="Image" class="img-fluid"><div class="unit-1-text"><h3 class="unit-1-heading">'+odp[tmp]["title"]+'</h3></div></a></div>');
                         }
                     })
                 });
@@ -313,8 +325,8 @@ $header = get_field('header_items');
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-7 text-center border-primary">
-                    <h2 class="font-weight-light text-primary">Contact Us</h2>
-                    <p class="color-black-opacity-5">See Our Daily News &amp; Updates</p>
+                    <h2 id="con" class="font-weight-light text-primary"><?php echo $contact_section['title']; ?></h2>
+                    <p class="color-black-opacity-5"><?php echo $contact_section['subtitle']; ?></p>
                 </div>
             </div>
             <div class="row">
@@ -322,9 +334,9 @@ $header = get_field('header_items');
 
 
 
-                    <form action="#" class="p-5 bg-white">
 
 
+                    <form class="p-5 bg-white" method="post">
                         <div class="row form-group">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <label class="text-black" for="fname">First Name</label>
@@ -361,35 +373,74 @@ $header = get_field('header_items');
 
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <input type="submit" value="Send Message" class="btn btn-primary py-2 px-4 text-white">
+                                <input type="button" value="Send Message" class="btn btn-primary py-2 px-4 text-white" id="submit">
                             </div>
                         </div>
-
-
                     </form>
                 </div>
+
+
+
+
+
                 <div class="col-md-5">
-
                     <div class="p-4 mb-3 bg-white">
-                        <p class="mb-0 font-weight-bold">Address</p>
-                        <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+                        <p class="mb-0 font-weight-bold"><?php echo $contact_section['address_title']; ?></p>
+                        <p class="mb-4"><?php echo $contact_section['address_content']; ?></p>
 
-                        <p class="mb-0 font-weight-bold">Phone</p>
-                        <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+                        <p class="mb-0 font-weight-bold"><?php echo $contact_section['phone_title']; ?></p>
+                        <p class="mb-4"><?php echo $contact_section['phone_content']; ?></p>
 
-                        <p class="mb-0 font-weight-bold">Email Address</p>
-                        <p class="mb-0"><a href="#">youremail@domain.com</a></p>
-
+                        <p class="mb-0 font-weight-bold"><?php echo $contact_section['email_title']; ?></p>
+                        <p class="mb-0"><?php echo $contact_section['email_content']; ?></p>
                     </div>
-
                     <div class="p-4 mb-3 bg-white">
-                        <h3 class="h5 text-black mb-3">More Info</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur? Fugiat quaerat eos qui, libero neque sed nulla.</p>
-                        <p><a href="#" class="btn btn-primary px-4 py-2 text-white">Learn More</a></p>
+                        <h3 class="h5 text-black mb-3"><?php echo $contact_section['more_info_title']; ?></h3>
+                        <p><?php echo $contact_section['more_info_content']; ?></p>
+                        <?php if($contact_section['more_info_check_button'] == true): ?>
+                            <p><a href="<?php echo $contact_section['more_info_button_link'] ?>" class="btn btn-primary px-4 py-2 text-white"><?php echo $contact_section['more_info_button_title'] ?></a></p>
+                        <?php endif; ?>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-<?php get_footer(); ?>
+
+<script type="text/javascript" >
+    $(document).ready(function() {
+        $('input#submit').on('click', function() {
+            $.ajax({
+                type: 'post',
+                url: 'wp-admin/admin-ajax.php?action=single_post',
+                data: {
+                    fname: $('#fname').val(),
+                    lname: $('#lname').val(),
+                    subject: $('#subject').val(),
+                    email: $('#email').val(),
+                    message: $('#message').val(),
+                },
+                success: function(data) {
+                    alert("Wysłano pomyślnie!");
+                }
+            });
+        });
+    });
+</script>
+
+
+<?php
+/*
+wp_insert_post(array (
+    'post_type' => 'contact',
+    'post_title' => 'aa',
+    'post_content' => 'aa',
+    'post_status' => 'publish',
+    'comment_status' => 'closed',   // if you prefer
+    'ping_status' => 'closed',      // if you prefer
+));*/
+
+
+
+get_footer(); ?>
+
+
