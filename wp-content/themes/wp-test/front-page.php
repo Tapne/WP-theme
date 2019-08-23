@@ -4,6 +4,10 @@ get_header();
 $about_us_section = get_field('about_us');
 $how_it_works_section = get_field('how_it_works');
 $our_services_section = get_field('our_services');
+$industries_section = get_field('industries');
+$video_section = get_field('video_section');
+$testimonials_section = get_field('testimonials');
+$our_blog_section = get_field('our_blog');
 
 
 $header = get_field('header_items');
@@ -96,8 +100,7 @@ $header = get_field('header_items');
                 query_posts(array(
                     'post_type' => 'people',
                     'order' => 'DESC',
-                )); ?>
-                <?php
+                ));
                 while (have_posts()) : the_post(); ?>
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 mt-3">
                         <div class="person">
@@ -192,81 +195,44 @@ $header = get_field('header_items');
         </div>
     </div>
 
-<?php
-    $json = file_get_contents("https://jsonplaceholder.typicode.com/photos");
-    $characters = json_decode($json);
-    $max = count($characters);
-    $min =1;
-?>
-
     <div class="site-section block-13" id="section-industries">
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-7 text-center border-primary">
-                    <h2 class="mb-0 text-primary">Industries</h2>
-                    <p class="color-black-opacity-5">Lorem ipsum dolor sit amet.</p>
+                    <h2 class="mb-0 text-primary"><?php echo $industries_section['title']; ?></h2>
+                    <p class="color-black-opacity-5"><?php echo $industries_section['subtitle']; ?></p>
                 </div>
             </div>
         </div>
 
-        <div class="owl-carousel nonloop-block-13">
-            <div>
-                <a href="#" class="unit-1 text-center">
-                    <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                    <div class="unit-1-text">
-                        <h3 class="unit-1-heading">Storage</h3>
-                    </div>
-                </a>
-            </div>
-
-            <div>
-                <a href="#" class="unit-1 text-center">
-                    <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-                    <div class="unit-1-text">
-                        <h3 class="unit-1-heading">Air Transports</h3>
-                    </div>
-                </a>
-            </div>
-
-            <div>
-                <a href="#" class="unit-1 text-center">
-                    <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-                    <div class="unit-1-text">
-                        <h3 class="unit-1-heading">Cargo Transports</h3>
-                    </div>
-                </a>
-            </div>
-
-            <div>
-                <a href="#" class="unit-1 text-center">
-                    <img src="images/img_4.jpg" alt="Image" class="img-fluid">
-                    <div class="unit-1-text">
-                        <h3 class="unit-1-heading">Cargo Ship</h3>
-                    </div>
-                </a>
-            </div>
-
-            <div>
-                <a href="#" class="unit-1 text-center">
-                    <img src="images/img_5.jpg" alt="Image" class="img-fluid">
-                    <div class="unit-1-text">
-                        <h3 class="unit-1-heading">Ware Housing</h3>
-                    </div>
-                </a>
-            </div>
-
-
+        <div class="owl-carousel nonloop-block-13" id="industries">
+            <script>
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "https://jsonplaceholder.typicode.com/photos",
+                        success: function (odp) {
+                            var max = odp.length;
+                            var tmp = 0;
+                            var i;
+                            for(i=0; i < 10; i++) {
+                                tmp = Math.floor((Math.random()*max)+1);
+                                $("#industries").append('<div><a href="#'+odp[tmp]["id"]+'" class="unit-1 text-center"><img src="'+odp[tmp]["url"]+'" alt="Image" class="img-fluid"><div class="unit-1-text"><h3 class="unit-1-heading">'+odp[tmp]["title"]+'</h3></div></a></div>');
+                            }
+                        }
+                    })
+                });
+            </script>
         </div>
     </div>
 
 
-    <div class="site-blocks-cover overlay inner-page-cover" style="background-image: url(images/hero_bg_2.jpg); background-attachment: fixed;">
+    <div class="site-blocks-cover overlay inner-page-cover" style="background-image: url(<?php echo $video_section['background']; ?>); background-attachment: fixed;">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
 
                 <div class="col-md-7">
                     <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-single-big mb-4 d-inline-block popup-vimeo"><span class="icon-play"></span></a>
-                    <h2 class="text-white font-weight-light mb-5 h1">Watch The Video</h2>
+                    <h2 class="text-white font-weight-light mb-5 h1"><?php echo $video_section['title']; ?></h2>
 
                 </div>
             </div>
@@ -275,63 +241,31 @@ $header = get_field('header_items');
 
     <div class="site-section border-bottom">
         <div class="container">
-
             <div class="row justify-content-center mb-5">
                 <div class="col-md-7 text-center border-primary">
-                    <h2 class="font-weight-light text-primary">Testimonials</h2>
+                    <h2 class="font-weight-light text-primary"><?php echo $testimonials_section['title']; ?></h2>
                 </div>
             </div>
 
             <div class="slide-one-item home-slider owl-carousel">
-                <div>
-                    <div class="testimonial">
-                        <figure class="mb-4">
-                            <img src="images/person_1.jpg" alt="Image" class="img-fluid mb-3">
-
-                        </figure>
-                        <blockquote>
-                            <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                            <p class="author"> &mdash; John Trump</p>
-                        </blockquote>
+                <?php
+                query_posts(array(
+                    'post_type' => 'people',
+                    'order' => 'DESC',
+                ));
+                while (have_posts()) : the_post(); ?>
+                    <div>
+                        <div class="testimonial">
+                            <figure class="mb-4">
+                                <?php the_post_thumbnail('', ['class' => 'img-fluid mb-3']); ?>
+                            </figure>
+                            <blockquote>
+                                <p><?php the_content(); ?></p>
+                                <p class="author"> &mdash; <?php the_title(); ?></p>
+                            </blockquote>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <div class="testimonial">
-                        <figure class="mb-4">
-                            <img src="images/person_2.jpg" alt="Image" class="img-fluid mb-3">
-
-                        </figure>
-                        <blockquote>
-                            <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                            <p class="author"> &mdash; Roger Moore</p>
-                        </blockquote>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="testimonial">
-                        <figure class="mb-4">
-                            <img src="images/person_4.jpg" alt="Image" class="img-fluid mb-3">
-                        </figure>
-                        <blockquote>
-                            <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                            <p class="author"> &mdash; Ben Carson</p>
-                        </blockquote>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="testimonial">
-                        <figure class="mb-4">
-                            <img src="images/person_5.jpg" alt="Image" class="img-fluid mb-3">
-                        </figure>
-                        <blockquote>
-                            <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                            <p class="author"> &mdash; Jed Smith</p>
-                        </blockquote>
-                    </div>
-                </div>
-
+                <?php endwhile;?>
             </div>
         </div>
     </div>
@@ -340,41 +274,38 @@ $header = get_field('header_items');
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-7 text-center border-primary">
-                    <h2 class="font-weight-light text-primary">Our Blog</h2>
-                    <p class="color-black-opacity-5">See Our Daily News &amp; Updates</p>
+                    <h2 class="font-weight-light text-primary"><?php echo $our_blog_section['title']; ?></h2>
+                    <p class="color-black-opacity-5"><?php echo $our_blog_section['subtitle']; ?></p>
                 </div>
             </div>
+
+
             <div class="row mb-5 align-items-stretch">
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-                    <div class="h-entry">
-                        <img src="images/blog_1.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">How Logistics Company Improve Spendings</a></h2>
-                        <div class="meta mb-4">by Jed Wilson <span class="mx-2">&bullet;</span> Jan 18, 2019 <span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+            <?php
+            global $post;
+            $args = array( 'posts_per_page' => 3 );
+            $lastposts = get_posts( $args );
+            foreach ( $lastposts as $post ) : setup_postdata( $post ); ?>
+
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+                        <div class="h-entry">
+                            <?php the_post_thumbnail('', ['class' => 'img-fluid w-50']); ?>
+                            <h2 class="font-size-regular"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                            <div class="meta mb-4">by <?php the_author(); ?> <span class="mx-2">&bullet;</span> <?php the_date(); ?> <span class="mx-2">&bullet;</span> <?php the_category(' '); ?></div>
+                            <p><?php the_content(); ?></p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-                    <div class="h-entry">
-                        <img src="images/blog_2.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">How Logistics Company Improve Spendings</a></h2>
-                        <div class="meta mb-4">by Jed Wilson <span class="mx-2">&bullet;</span> Jan 18, 2019 <span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-                    <div class="h-entry">
-                        <img src="images/blog_3.jpg" alt="Image" class="img-fluid">
-                        <h2 class="font-size-regular"><a href="#">How Logistics Company Improve Spendings</a></h2>
-                        <div class="meta mb-4">by Jed Wilson <span class="mx-2">&bullet;</span> Jan 18, 2019 <span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-                    </div>
-                </div>
+            <?php endforeach;
+            wp_reset_postdata();
+            ?>
             </div>
+            <?php if($our_blog_section['button_all_posts_checker'] == true): ?>
             <div class="row">
                 <div class="col-12 text-center">
-                    <p class="mb-0"><a href="https://free-template.co" class="btn btn-primary py-3 px-5 text-white">View All Blog Posts</a></p>
+                    <p class="mb-0"><a href="<?php echo $our_blog_section['url_button_all_posts']; ?>" class="btn btn-primary py-3 px-5 text-white"><?php echo $our_blog_section['title_button_all_posts']; ?></a></p>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 
