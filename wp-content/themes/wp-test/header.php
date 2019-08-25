@@ -61,7 +61,7 @@
                     'container' =>  'ul',
                     'echo' => true,
                     'menu_class' => 'site-menu js-clone-nav mx-auto d-none d-lg-block',
-                    'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
                     'walker' => new My_Walker_Nav_Menu(),
                 ]);
                 ?>
