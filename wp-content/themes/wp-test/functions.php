@@ -5,7 +5,7 @@ function wp_test_static() {
     wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css');
     wp_enqueue_style('magnific-popup', get_template_directory_uri().'/css/magnific-popup.css');
     wp_enqueue_style('jquery-ui', get_template_directory_uri().'/css/jquery-ui.css');
-    wp_enqueue_style('owl-carousel', get_stylesheet_directory_uri().'/css/owl.carousel.min.css');
+    wp_enqueue_style('owl-carousel', get_template_directory_uri().'/css/owl.carousel.min.css');
     wp_enqueue_style('owl-theme-default', get_template_directory_uri().'/css/owl.theme.default.min.css');
     wp_enqueue_style('bootstrap-datepicker', get_template_directory_uri().'/css/bootstrap-datepicker.css');
     wp_enqueue_style('flaticon', get_template_directory_uri().'/fonts/flaticon/font/flaticon.css');
@@ -107,7 +107,7 @@ function contact_custom_post_type() {
         'public' => true,
         'has_archive' => true,
         'rewrite' => array(
-            'slug' => 'people',
+            'slug' => 'contact',
         ),
         'supports' => $supports,
     );
@@ -133,3 +133,45 @@ function single_post()
 
 add_action( 'wp_ajax_single_post', 'single_post' );
 add_action( 'wp_ajax_nopriv_single_post', 'single_post' );
+
+
+function newsletter_custom_post_type() {
+    $labels = array(
+        'name' => 'Newsletter',
+        'singular_name' => 'Newsletter',
+    );
+
+    $supports = array(
+        'title',
+        'custom-fields',
+        'revisions',
+        'post-formats',
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array(
+            'slug' => 'newsletter',
+        ),
+        'supports' => $supports,
+    );
+    register_post_type('newsletter', $args);
+}
+add_action( 'init', 'newsletter_custom_post_type' );
+
+function newsletter()
+{
+    $data = array(
+        'post_type' => 'newsletter',
+        'post_title' => $_POST['email'],
+        'post_status' => 'publish',
+    );
+    $id = wp_insert_post( $data );
+    $sent = wp_mail(get_option('admin_email'), 'Newsletter', 'You have new subscribe: '.$_POST['email']);
+    wp_die();
+}
+
+add_action( 'wp_ajax_newsletter', 'newsletter' );
+add_action( 'wp_ajax_nopriv_newsletter', 'newsletter' );

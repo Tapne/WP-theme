@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes();
+?>>
 <head>
     <title>
         <?php wp_title('-', true, 'right'); ?>
